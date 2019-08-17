@@ -1,0 +1,121 @@
+data:
+  dir: ./data
+  drafts_path:
+    - draft_1_2018.csv
+    - draft_2_2018.csv
+    - draft_3_2018.csv
+    - draft_4_2018.csv
+    - draft_5_2018.csv
+    - draft_6_2018.csv
+    - draft_7_2018.csv
+    - draft_8_2018.csv
+    - draft_9_2018.csv
+    - draft_10_2018.csv
+    - draft_11_2018.csv
+    - draft_12_2018.csv
+  leagues_path: leagues_2018.csv
+  players_path: players_2018.csv
+  results_path: weekly_results_2018.csv
+  ranks_path: ranks_2018.csv
+
+credentials:
+  bigquery: bigquery-loader.json
+
+bigquery:
+  project_id: ad-fantasy-football
+  dataset_id: playdraft_2018
+  schemas:
+    - name: drafts
+      fields:
+      - name: id
+        type: STRING
+        mode: REQUIRED
+      - name: draft_id
+        type: STRING
+        mode: REQUIRED
+      - name: team_id
+        type: STRING
+        mode: REQUIRED
+      - name: round_number
+        type: INTEGER
+        mode: REQUIRED
+      - name: pick_number
+        type: INTEGER
+        mode: REQUIRED
+      - name: player_id
+        type: STRING
+        mode: REQUIRED
+      - name: pick_time
+        type: DATETIME
+        mode: NULLABLE
+    - name: leagues
+      fields:
+      - name: draft_id
+        type: STRING
+        mode: REQUIRED
+      - name: participants
+        type: INTEGER
+        mode: REQUIRED
+      - name: draft_tm
+        type: DATETIME
+        mode: REQUIRED
+      - name: entry_cost
+        type: INTEGER
+        mode: NULLABLE
+      - name: draft_timer
+        type: STRING
+        mode: NULLABLE
+      - name: complete_true_false
+        type: BOOLEAN
+        mode: NULLABLE
+    - name: players
+      fields:
+      - name: player_id
+        type: STRING
+        mode: REQUIRED
+      - name: first_name
+        type: STRING
+        mode: NULLABLE
+      - name: last_name
+        type: STRING
+        mode: NULLABLE
+      - name: position
+        type: STRING
+        mode: NULLABLE
+      - name: team
+        type: STRING
+        mode: NULLABLE
+      - name: team_name
+        type: STRING
+        mode: NULLABLE
+    - name: results
+      fields:
+      - name: id
+        type: STRING
+        mode: REQUIRED
+      - name: year
+        type: INTEGER
+        mode: NULLABLE
+      - name: week
+        type: INTEGER
+        mode: NULLABLE
+      - name: player_id
+        type: STRING
+        mode: REQUIRED
+      - name: plr
+        type: STRING
+        mode: REQUIRED
+      - name: fantasy_points
+        type: FLOAT
+        mode: NULLABLE
+    - name: ranks
+      fields:
+      - name: draft_id
+        type: STRING
+        mode: REQUIRED
+      - name: team_id
+        type: STRING
+        mode: NULLABLE
+      - name: rank
+        type: INTEGER
+        mode: NULLABLE
