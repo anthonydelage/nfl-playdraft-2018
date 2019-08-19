@@ -74,7 +74,7 @@ FROM
         GROUP BY 1
       ) t_players
         ON (t_drafts.player_id = t_players.player_id)
-        INNER JOIN
+        LEFT OUTER JOIN
       (
         SELECT
           player_id,

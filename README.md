@@ -14,7 +14,7 @@ Two main components are included:
 To load the data into BigQuery, follow these steps:
 
 1. Download the data from the DRAFT Google Drive ([here](https://drive.google.com/drive/folders/1N4-Gyxpd3xwnQEXWT2Ri3vzz-GwoxhjS)).
-2. Place it in a `data/` directory.
+2. Place it in a `./data` directory.
 3. Ensure that the filenames in `config.yaml`'s `draft` key match those in the local directory.
 
 ```yaml
